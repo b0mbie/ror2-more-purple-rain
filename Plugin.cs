@@ -14,7 +14,6 @@ public class Plugin : BaseUnityPlugin {
 	private void Awake() {
 		// Plugin startup logic
 		Logger = base.Logger;
-		Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
 		MusicController.pickTrackHook += (MusicController controller, ref MusicTrackDef newTrack) => {
 			var mainTrack = SceneCatalog.mostRecentSceneDef.mainTrack;
 			if (mainTrack.cachedName == PURPLE_RAIN_SONG_NAME && newTrack.cachedName != PURPLE_RAIN_SONG_NAME) {

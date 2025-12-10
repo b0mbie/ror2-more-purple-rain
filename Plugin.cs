@@ -15,8 +15,8 @@ public class Plugin : BaseUnityPlugin {
 		// Plugin startup logic
 		Logger = base.Logger;
 		MusicController.pickTrackHook += (MusicController controller, ref MusicTrackDef newTrack) => {
-			var mainTrack = SceneCatalog.mostRecentSceneDef.mainTrack;
-			if (mainTrack.cachedName == PURPLE_RAIN_SONG_NAME && newTrack.cachedName != PURPLE_RAIN_SONG_NAME) {
+			var mainTrack = SceneCatalog.mostRecentSceneDef?.mainTrack;
+			if (mainTrack?.cachedName == PURPLE_RAIN_SONG_NAME && newTrack.cachedName != PURPLE_RAIN_SONG_NAME) {
 				Logger.LogDebug("Continuing Sky Meadows main track...");
 				newTrack = mainTrack;
 			}
